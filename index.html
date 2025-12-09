@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆盛和网络科技有限公司 | 智驭未来 - 智能驾驶系统解决方案</title>
+    <meta name="description" content="重庆盛和网络科技有限公司专注于车载电子与智能驾驶系统研发，提供L4级自动驾驶解决方案及智能座舱技术。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#0ea5e9', // Sky Blue
+                            accent: '#10b981',  // Emerald
+                            glass: 'rgba(15, 23, 42, 0.8)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #0f172a; color: #f1f5f9; }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #38bdf8;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- 1. Top Bar (顶栏) -->
+    <div class="bg-slate-900 text-slate-400 text-xs py-2 border-b border-slate-800 hidden md:block">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <span><i class="fas fa-rss mr-1"></i> 股票代码: 拟筹备中</span>
+                <span><i class="fas fa-globe mr-1"></i> 全球领先的车载智能系统服务商</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-brand-primary transition">投资者关系</a>
+                <a href="#" class="hover:text-brand-primary transition">加入我们</a>
+                <span>EN / 中文</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Navigation (导航) -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter flex items-center">
+                <div class="w-8 h-8 bg-gradient-to-tr from-sky-500 to-emerald-400 rounded-lg mr-2 flex items-center justify-center text-slate-900">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                盛和<span class="text-sky-400">科技</span>
+            </a>
+            
+            <div class="hidden lg:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#home" class="hover:text-sky-400 transition">首页</a>
+                <a href="#technology" class="hover:text-sky-400 transition">核心技术</a>
+                <a href="#products" class="hover:text-sky-400 transition">产品中心</a>
+                <a href="#solutions" class="hover:text-sky-400 transition">解决方案</a>
+                <a href="#about" class="hover:text-sky-400 transition">关于我们</a>
+                <a href="#contact" class="hover:text-sky-400 transition">联系方式</a>
+            </div>
+
+            <button class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-sky-500/30 hidden lg:block">
+                预约演示
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-2xl text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-t border-slate-800 p-4 absolute w-full">
+            <div class="flex flex-col space-y-3 text-center">
+                <a href="#home" class="py-2 text-slate-300">首页</a>
+                <a href="#technology" class="py-2 text-slate-300">核心技术</a>
+                <a href="#products" class="py-2 text-slate-300">产品中心</a>
+                <a href="#contact" class="py-2 text-slate-300">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. Hero Section (首屏) -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/296/1920/1080" alt="Future City" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
+            <div class="inline-block px-4 py-1 mb-6 border border-sky-500/30 rounded-full bg-sky-500/10 backdrop-blur-sm text-sky-300 text-sm">
+                🚀 新一代 SH-PILOT 3.0 系统正式发布
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                重塑感知的边界<br>
+                <span class="gradient-text">定义智能出行新纪元</span>
+            </h1>
+            <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                重庆盛和网络科技有限公司致力于将人工智能与汽车电子深度融合，为全球主机厂提供安全、可靠、可量产的L2-L4级自动驾驶全栈解决方案。
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#products" class="px-8 py-4 bg-sky-500 hover:bg-sky-600 rounded-lg font-bold transition shadow-lg shadow-sky-500/25">
+                    探索产品
+                </a>
+                <a href="#about" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg font-bold transition">
+                    了解盛和
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Key Data (数据概览) -->
+    <section class="py-12 border-b border-slate-800 bg-slate-900/50">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div data-aos="fade-up" data-aos-delay="0">
+                <h3 class="text-4xl font-bold text-white mb-2">10+</h3>
+                <p class="text-slate-500 text-sm">年车载电子研发经验</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-4xl font-bold text-white mb-2">50+</h3>
+                <p class="text-slate-500 text-sm">合作主机厂品牌</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-4xl font-bold text-white mb-2">200+</h3>
+                <p class="text-slate-500 text-sm">核心技术专利</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-4xl font-bold text-white mb-2">100万+</h3>
+                <p class="text-slate-500 text-sm">系统装机量</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Brand Philosophy (品牌理念) -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2" data-aos="fade-right">
+                <h2 class="text-3xl font-bold mb-6">让移动更自由，<br>让驾驶更安全</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-sky-500 to-emerald-500 mb-8"></div>
+                <p class="text-slate-400 mb-6 leading-relaxed">
+                    在盛和科技，我们不制造汽车，我们赋予汽车“大脑”与“神经”。坐落于中国汽车重镇重庆，我们依托强大的工业底蕴与前沿的算法能力，正在重新定义人与车的交互关系。
+                </p>
+                <p class="text-slate-400 mb-6 leading-relaxed">
+                    我们的使命是通过持续的技术创新，降低交通事故率，提升出行效率，让每一次出发都安心抵达。
+                </p>
+                <ul class="space-y-3 text-slate-300">
+                    <li class="flex items-center"><i class="fas fa-check-circle text-emerald-400 mr-3"></i> 极致的安全冗余设计</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-emerald-400 mr-3"></i> 深度学习算法自研</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-emerald-400 mr-3"></i> 车规级硬件制造标准</li>
+                </ul>
+            </div>
+            <div class="md:w-1/2 relative" data-aos="fade-left">
+                <img src="https://picsum.photos/id/191/800/600" alt="Vision" class="rounded-2xl shadow-2xl opacity-80 border border-slate-700">
+                <div class="absolute -bottom-6 -left-6 bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl hidden md:block">
+                    <p class="text-sky-400 font-bold text-lg">"技术为本"</p>
+                    <p class="text-slate-400 text-sm">核心研发人员占比超 75%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Core Competencies (核心技术) -->
+    <section id="technology" class="py-20 bg-slate-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-sky-400 font-medium uppercase tracking-wider">Core Technology</span>
+                <h2 class="text-4xl font-bold mt-2 text-white">全栈自研技术架构</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tech 1 -->
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-sky-500 transition duration-300 group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-sky-500 transition">
+                        <i class="fas fa-eye text-2xl text-sky-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">多模态融合感知</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        融合LiDAR、毫米波雷达与高清摄像头数据，通过BEV（鸟瞰图）网络构建高精度3D环境模型，实现全天候精准感知。
+                    </p>
+                </div>
+                <!-- Tech 2 -->
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-emerald-500 transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-emerald-500 transition">
+                        <i class="fas fa-microchip text-2xl text-emerald-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">高性能计算平台</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        基于高算力SOC芯片开发的域控制器，支持千兆以太网通信，满足L4级自动驾驶的海量数据实时处理需求。
+                    </p>
+                </div>
+                <!-- Tech 3 -->
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-purple-500 transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-purple-500 transition">
+                        <i class="fas fa-project-diagram text-2xl text-purple-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">规控决策算法</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        采用强化学习与预测控制算法，在复杂城市路况下实现拟人化的博弈策略与平顺的轨迹规划。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Smart Cockpit (智能座舱) -->
+    <section class="py-20 bg-gradient-to-b from-slate-950 to-slate-900 relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+             <!-- Abstract graphic placeholder -->
+             <div class="w-full h-full bg-sky-500 blur-3xl rounded-full translate-x-1/2"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row-reverse items-center gap-12">
+            <div class="md:w-1/2">
+                <img src="https://picsum.photos/id/160/800/500" alt="Smart Cockpit" class="rounded-xl shadow-2xl border border-slate-700">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold mb-6">SH-OS 智能座舱系统</h2>
+                <p class="text-slate-400 mb-8">
+                    不止是驾驶，更是生活。我们的智能座舱解决方案集成了AR-HUD、DMS驾驶员监控及多屏联动娱乐系统，打造沉浸式第三空间。
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-800/50 p-4 rounded-lg">
+                        <h4 class="font-bold text-sky-400 mb-1">语音交互</h4>
+                        <p class="text-xs text-slate-400">全双工自然语言处理</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">
+                        <h4 class="font-bold text-emerald-400 mb-1">场景引擎</h4>
+                        <p class="text-xs text-slate-400">主动推荐服务与内容</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. V2X Solutions (车路协同) -->
+    <section class="py-20 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://picsum.photos/id/203/800/500" alt="V2X" class="rounded-xl shadow-2xl border border-slate-700 filter grayscale hover:grayscale-0 transition duration-700">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">5G + V2X 车路协同</h2>
+                    <p class="text-slate-400 mb-8">
+                        通过车与路侧基础设施（RSU）的实时通讯，拓展车辆感知范围，解决视线遮挡问题，赋能智慧交通城市建设。
+                    </p>
+                    <a href="#" class="text-sky-400 hover:text-sky-300 font-medium flex items-center group">
+                        查看技术白皮书 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Hardware Products (硬件产品) -->
+    <section id="products" class="py-20 bg-slate-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white">自研硬件产品矩阵</h2>
+                <p class="text-slate-500 mt-4">符合 ISO 26262 功能安全标准的车规级硬件</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-sky-500/50 transition group">
+                    <div class="h-48 overflow-hidden bg-slate-800 flex items-center justify-center">
+                         <img src="https://picsum.photos/id/119/400/300" alt="Domain Controller" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">SH-Pilot 域控制器</h3>
+                        <p class="text-xs text-slate-500 mb-4">基于Orin-X芯片，算力高达254TOPS。</p>
+                        <span class="text-sky-400 text-xs font-bold border border-sky-400/30 px-2 py-1 rounded">旗舰产品</span>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-sky-500/50 transition group">
+                    <div class="h-48 overflow-hidden bg-slate-800 flex items-center justify-center">
+                        <img src="https://picsum.photos/id/250/400/300" alt="Camera" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">800W像素高清摄像头</h3>
+                        <p class="text-xs text-slate-500 mb-4">超宽动态范围，识别距离可达500米。</p>
+                        <span class="text-slate-400 text-xs border border-slate-700 px-2 py-1 rounded">感知套件</span>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-sky-500/50 transition group">
+                    <div class="h-48 overflow-hidden bg-slate-800 flex items-center justify-center">
+                         <img src="https://picsum.photos/id/192/400/300" alt="Gateway" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">智能网关 T-BOX</h3>
+                        <p class="text-xs text-slate-500 mb-4">支持5G/V2X通讯，确保OTA安全升级。</p>
+                        <span class="text-slate-400 text-xs border border-slate-700 px-2 py-1 rounded">通讯模组</span>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-sky-500/50 transition group">
+                    <div class="h-48 overflow-hidden bg-slate-800 flex items-center justify-center">
+                         <img src="https://picsum.photos/id/366/400/300" alt="Radar" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">4D 成像雷达</h3>
+                        <p class="text-xs text-slate-500 mb-4">全天候工作，提供高度信息与点云成像。</p>
+                        <span class="text-slate-400 text-xs border border-slate-700 px-2 py-1 rounded">新型传感</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Application Scenarios (应用场景) -->
+    <section id="solutions" class="py-20 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">多场景落地应用</h2>
+            <div class="flex flex-col md:flex-row gap-4">
+                <!-- Card 1 -->
+                <div class="flex-1 relative group h-80 rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="https://picsum.photos/id/1067/600/800" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40" alt="Robotaxi">
+                    <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-slate-900 to-transparent">
+                        <h3 class="text-2xl font-bold text-white mb-2">Robotaxi 城市出行</h3>
+                        <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            复杂城市路况下的无人驾驶载人服务，高效、安全。
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flex-1 relative group h-80 rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="https://picsum.photos/id/111/600/800" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40" alt="Logistics">
+                    <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-slate-900 to-transparent">
+                        <h3 class="text-2xl font-bold text-white mb-2">干线物流重卡</h3>
+                        <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            高速公路L3/L4级自动驾驶，降低司机疲劳，节省燃油成本。
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flex-1 relative group h-80 rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="https://picsum.photos/id/184/600/800" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40" alt="Mining">
+                    <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-slate-900 to-transparent">
+                        <h3 class="text-2xl font-bold text-white mb-2">矿区/港口无人运输</h3>
+                        <p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0">
+                            封闭场景下的特种作业自动化，提升恶劣环境下的作业效率。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. R&D Process (研发流程) -->
+    <section class="py-16 bg-slate-950 border-t border-slate-900">
+        <div class="container mx-auto px-6">
+            <h3 class="text-center text-xl text-slate-400 mb-10">ASPICE 认证研发流程</h3>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="text-center group">
+                    <div class="w-16 h-16 rounded-full border border-slate-700 flex items-center justify-center mb-4 group-hover:border-sky-500 transition">
+                        <span class="text-xl font-bold text-slate-500 group-hover:text-sky-500">01</span>
+                    </div>
+                    <span class="text-sm font-medium">需求分析</span>
+                </div>
+                <div class="h-0.5 w-10 bg-slate-800 hidden md:block"></div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 rounded-full border border-slate-700 flex items-center justify-center mb-4 group-hover:border-sky-500 transition">
+                        <span class="text-xl font-bold text-slate-500 group-hover:text-sky-500">02</span>
+                    </div>
+                    <span class="text-sm font-medium">系统架构</span>
+                </div>
+                <div class="h-0.5 w-10 bg-slate-800 hidden md:block"></div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 rounded-full border border-slate-700 flex items-center justify-center mb-4 group-hover:border-sky-500 transition">
+                        <span class="text-xl font-bold text-slate-500 group-hover:text-sky-500">03</span>
+                    </div>
+                    <span class="text-sm font-medium">软硬件开发</span>
+                </div>
+                <div class="h-0.5 w-10 bg-slate-800 hidden md:block"></div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 rounded-full border border-slate-700 flex items-center justify-center mb-4 group-hover:border-emerald-500 transition">
+                        <span class="text-xl font-bold text-slate-500 group-hover:text-emerald-500">04</span>
+                    </div>
+                    <span class="text-sm font-medium">实车测试</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Partners (合作伙伴) -->
+    <section class="py-16 bg-slate-900">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-slate-500 mb-8 uppercase tracking-widest text-xs">Trusted By Industry Leaders</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 opacity-60">
+                <!-- Using placeholders for logos -->
+                <div class="flex items-center justify-center text-xl font-bold text-slate-400 border border-slate-800 p-4 rounded hover:text-white hover:border-slate-600 transition">AutoCar A</div>
+                <div class="flex items-center justify-center text-xl font-bold text-slate-400 border border-slate-800 p-4 rounded hover:text-white hover:border-slate-600 transition">SmartEV</div>
+                <div class="flex items-center justify-center text-xl font-bold text-slate-400 border border-slate-800 p-4 rounded hover:text-white hover:border-slate-600 transition">ChipTek</div>
+                <div class="flex items-center justify-center text-xl font-bold text-slate-400 border border-slate-800 p-4 rounded hover:text-white hover:border-slate-600 transition">CloudSys</div>
+                <div class="flex items-center justify-center text-xl font-bold text-slate-400 border border-slate-800 p-4 rounded hover:text-white hover:border-slate-600 transition">FutureMove</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. News Center (新闻中心) -->
+    <section class="py-20 bg-slate-950">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="text-3xl font-bold">企业动态</h2>
+                <a href="#" class="text-sky-500 hover:text-sky-400 text-sm">查看更多 ></a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <article class="bg-slate-900 rounded-lg overflow-hidden shadow-lg group hover:shadow-sky-900/20 transition">
+                    <img src="https://picsum.photos/id/3/400/250" class="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition" alt="News">
+                    <div class="p-6">
+                        <span class="text-xs text-emerald-400 mb-2 block">2023-10-15</span>
+                        <h3 class="font-bold text-lg mb-2 group-hover:text-sky-400 transition">盛和科技完成B轮融资，加速L4级产品量产</h3>
+                        <p class="text-slate-500 text-sm line-clamp-2">本轮融资将用于扩大研发团队及建设新的智能制造基地。</p>
+                    </div>
+                </article>
+                <!-- News 2 -->
+                <article class="bg-slate-900 rounded-lg overflow-hidden shadow-lg group hover:shadow-sky-900/20 transition">
+                    <img src="https://picsum.photos/id/60/400/250" class="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition" alt="News">
+                    <div class="p-6">
+                        <span class="text-xs text-emerald-400 mb-2 block">2023-09-20</span>
+                        <h3 class="font-bold text-lg mb-2 group-hover:text-sky-400 transition">亮相国际车展，发布新一代智能座舱平台</h3>
+                        <p class="text-slate-500 text-sm line-clamp-2">凭借沉浸式的交互体验，SH-Cockpit 2.0 获得行业高度关注。</p>
+                    </div>
+                </article>
+                <!-- News 3 -->
+                <article class="bg-slate-900 rounded-lg overflow-hidden shadow-lg group hover:shadow-sky-900/20 transition">
+                    <img src="https://picsum.photos/id/48/400/250" class="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition" alt="News">
+                    <div class="p-6">
+                        <span class="text-xs text-emerald-400 mb-2 block">2023-08-05</span>
+                        <h3 class="font-bold text-lg mb-2 group-hover:text-sky-400 transition">与某头部主机厂达成战略合作</h3>
+                        <p class="text-slate-500 text-sm line-clamp-2">双方将共同开发面向未来的自动驾驶车型。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. ESG/Sustainability (可持续发展) -->
+    <section class="py-16 bg-gradient-to-r from-emerald-900/20 to-slate-900 border-y border-slate-800/50">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-6 md:mb-0">
+                <h3 class="text-2xl font-bold text-white mb-2"><i class="fas fa-leaf text-emerald-500 mr-2"></i> 绿色科技，低碳出行</h3>
+                <p class="text-slate-400 text-sm max-w-lg">我们致力于通过算法优化提升车辆能效，每一行代码都在为减少碳排放做贡献。</p>
+            </div>
+            <button class="border border-emerald-500 text-emerald-500 px-6 py-2 rounded hover:bg-emerald-500 hover:text-white transition">阅读ESG报告</button>
+        </div>
+    </section>
+
+    <!-- 15. Recruitment (加入我们) -->
+    <section class="py-20 bg-slate-900 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-4">加入盛和，共创未来</h2>
+            <p class="text-slate-400 mb-8">我们需要算法工程师、嵌入式专家以及富有激情的你。</p>
+            <div class="inline-grid grid-cols-2 md:grid-cols-4 gap-4 text-left max-w-4xl mx-auto mb-8">
+                <div class="bg-slate-800 p-4 rounded border-l-4 border-sky-500">
+                    <h4 class="font-bold">感知算法专家</h4>
+                    <span class="text-xs text-slate-500">重庆/上海</span>
+                </div>
+                <div class="bg-slate-800 p-4 rounded border-l-4 border-sky-500">
+                    <h4 class="font-bold">C++ 研发工程师</h4>
+                    <span class="text-xs text-slate-500">重庆</span>
+                </div>
+                <div class="bg-slate-800 p-4 rounded border-l-4 border-sky-500">
+                    <h4 class="font-bold">产品经理</h4>
+                    <span class="text-xs text-slate-500">重庆</span>
+                </div>
+                <div class="bg-slate-800 p-4 rounded border-l-4 border-sky-500">
+                    <h4 class="font-bold">销售总监</h4>
+                    <span class="text-xs text-slate-500">深圳/北京</span>
+                </div>
+            </div>
+            <a href="#" class="text-sky-400 hover:underline">查看所有职位</a>
+        </div>
+    </section>
+
+    <!-- 16. Testimonials (客户评价) -->
+    <section class="py-16 bg-slate-950">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-900 p-8 rounded-xl relative">
+                    <i class="fas fa-quote-left text-4xl text-slate-800 absolute top-4 left-4"></i>
+                    <p class="text-slate-300 relative z-10 italic mb-4">"盛和团队的响应速度和技术实力令人印象深刻，他们的域控制器方案完美解决了我们新车型量产的时间压力。"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full mr-3"></div>
+                        <div>
+                            <p class="font-bold text-sm">李先生</p>
+                            <p class="text-xs text-slate-500">某知名车企 研发总监</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900 p-8 rounded-xl relative">
+                    <i class="fas fa-quote-left text-4xl text-slate-800 absolute top-4 left-4"></i>
+                    <p class="text-slate-300 relative z-10 italic mb-4">"在自动泊车场景下，盛和的算法表现出了极高的鲁棒性，用户体验反馈非常好。"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-slate-700 rounded-full mr-3"></div>
+                        <div>
+                            <p class="font-bold text-sm">王女士</p>
+                            <p class="text-xs text-slate-500">智能出行公司 CTO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. Contact & Map (联系与地图) -->
+    <section id="contact" class="py-20 bg-slate-900 relative">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12">
+            <!-- Contact Info -->
+            <div class="lg:w-1/3">
+                <h2 class="text-3xl font-bold mb-6">联系我们</h2>
+                <p class="text-slate-400 mb-8">无论您是寻求合作，还是对我们的技术感兴趣，随时欢迎联系。</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center text-sky-500 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-white">公司总部</h4>
+                            <p class="text-slate-400 text-sm mt-1">重庆市渝北区龙溪街道红锦大道57号<br>报业大厦2幢10楼1号房</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center text-sky-500 flex-shrink-0">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-white">电子邮箱</h4>
+                            <p class="text-slate-400 text-sm mt-1">contact@cqshenghenet.asia</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center text-sky-500 flex-shrink-0">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-white">联系电话</h4>
+                            <p class="text-slate-400 text-sm mt-1">13761155182</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:w-2/3 bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-slate-400 text-sm mb-2">姓名</label>
+                            <input type="text" class="w-full bg-slate-900 border border-slate-700 rounded p-3 text-white focus:outline-none focus:border-sky-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-slate-400 text-sm mb-2">公司</label>
+                            <input type="text" class="w-full bg-slate-900 border border-slate-700 rounded p-3 text-white focus:outline-none focus:border-sky-500 transition">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-slate-400 text-sm mb-2">邮箱</label>
+                        <input type="email" class="w-full bg-slate-900 border border-slate-700 rounded p-3 text-white focus:outline-none focus:border-sky-500 transition">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-slate-400 text-sm mb-2">需求描述</label>
+                        <textarea rows="4" class="w-full bg-slate-900 border border-slate-700 rounded p-3 text-white focus:outline-none focus:border-sky-500 transition"></textarea>
+                    </div>
+                    <button type="button" class="bg-gradient-to-r from-sky-500 to-emerald-500 text-white font-bold py-3 px-8 rounded hover:opacity-90 transition w-full md:w-auto">
+                        发送信息
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. Footer (页脚) -->
+    <footer class="bg-slate-950 border-t border-slate-900 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <a href="#" class="text-2xl font-bold tracking-tighter flex items-center mb-4 text-white">
+                        盛和<span class="text-sky-400">科技</span>
+                    </a>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        专注于智能驾驶核心技术研发，致力于成为全球领先的车载电子系统解决方案提供商。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">产品</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-sky-400">域控制器</a></li>
+                        <li><a href="#" class="hover:text-sky-400">智能传感器</a></li>
+                        <li><a href="#" class="hover:text-sky-400">智能座舱</a></li>
+                        <li><a href="#" class="hover:text-sky-400">V2X 模组</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">公司</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-sky-400">关于我们</a></li>
+                        <li><a href="#" class="hover:text-sky-400">新闻动态</a></li>
+                        <li><a href="#" class="hover:text-sky-400">加入我们</a></li>
+                        <li><a href="#" class="hover:text-sky-400">联系方式</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded bg-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:bg-sky-500 transition"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="w-10 h-10 rounded bg-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:bg-sky-500 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded bg-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:bg-sky-500 transition"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-600 text-xs">
+                    &copy; 2023 重庆盛和网络科技有限公司 版权所有
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0 text-xs text-slate-600">
+                    <a href="#" class="hover:text-slate-400">隐私政策</a>
+                    <a href="#" class="hover:text-slate-400">服务条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animate On Scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
